@@ -1,5 +1,18 @@
 .profile__editBtn {
-    width: 24px;
-    height: 24px;
-    align-self: center;
+    width: 22px;
+    height: 22px;
+    align-self: flex-end;
+    margin-bottom: 9px;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .profile__editBtn {
+        width: 16px;
+        height: 16px;
+        margin-bottom: 6px;
+    }
 }

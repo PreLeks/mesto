@@ -1,0 +1,11 @@
+.elements__image {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    width: 100%;
+}
+
+@media screen and (max-width: 320px) {
+    .elements__image {
+        height: 282px;     
+    }
+}
