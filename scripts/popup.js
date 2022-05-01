@@ -4,8 +4,8 @@ const closeEditBtn = document.querySelector('.popup__close');
 const saveBtn = document.querySelector('.popup__saveBtn');
 
 let formElement = document.querySelector('.popup__container');
-let nameInput = document.querySelector('.popup_input-username');
-let jobInput = document.querySelector('.popup_input-userjob');
+let nameInput = document.querySelector('.popup__input_username');
+let jobInput = document.querySelector('.popup__input_userjob');
 
 let username = document.querySelector('.profile__name');
 let userjob = document.querySelector('.profile__job');
