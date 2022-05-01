@@ -4,12 +4,19 @@
     align-self: flex-end;
     margin-bottom: 9px;
     border: 1px solid #fff;
+    background-color: #000;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@media screen and (max-width: 600px) {
+.profile__editBtn:hover {
+    opacity: .6;
+    transition: opacity .3s ease;
+}
+
+@media screen and (max-width: 650px) {
     .profile__editBtn {
         width: 16px;
         height: 16px;
