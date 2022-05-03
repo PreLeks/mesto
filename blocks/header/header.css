@@ -2,13 +2,7 @@
     width: 100%;
     padding-top: 5.113636364%;
     padding-bottom: 4.659090909%;
-}
-
-@media screen and (max-width: 890px) {
-    .header {
-        margin-left: 27px;
-        width: calc(100% - 27px);
-    }
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
 @media screen and (max-width: 640px) {

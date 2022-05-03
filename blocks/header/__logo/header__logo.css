@@ -2,3 +2,9 @@
     width: 16.136363636%;
     min-width: 104px;
 }
+
+@media screen and (max-width: 890px) {
+    .header__logo {
+        margin-left: 27px;
+    }
+}

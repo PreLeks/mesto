@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Александр Никитенко">
     <link rel="stylesheet" href="./pages/index.css">
-    <script defer src="./scripts/popup.js"></script>
     <title>Места России</title>
 </head>
 
@@ -15,7 +14,6 @@
         <header class="header">
             <img class="header__logo" src="./images/logo.svg" alt="Места России" />
         </header>
-        <div class="line"></div>
         <main>
             <section class="profile">
                 <img class="profile__avatar" src="./images/avatar.png" alt="Жак-Ив Кусто" />
@@ -35,42 +33,54 @@
                     <img class="elements__image" src="./images/lenskie_stolby.png" alt="Ленские столбы" />
                     <div class="elements__rating">
                         <h2 class="elements__name">Якутия</h2>
-                        <img class="elements__heart" src="./images/heart.svg" alt="Лайк" />
+                        <button type="button" class="elements__heart">
+                            <img src="./images/heart.svg" alt="Лайк" />
+                        </button>
                     </div>
                 </div>
                 <div class="elements__element">
                     <img class="elements__image" src="./images/stolby_vyvetrivaniya.png" alt="Столбы выветривания" />
                     <div class="elements__rating">
                         <h2 class="elements__name">Республика Коми</h2>
-                        <img class="elements__heart" src="./images/heart.svg" alt="Лайк" />
+                        <button type="button" class="elements__heart">
+                            <img src="./images/heart.svg" alt="Лайк" />
+                        </button>
                     </div>
                 </div>
                 <div class="elements__element">
                     <img class="elements__image" src="./images/kurshskaya_kosa.png" alt="Куршская коса" />
                     <div class="elements__rating">
                         <h2 class="elements__name">Калининградская область</h2>
-                        <img class="elements__heart" src="./images/heart.svg" alt="Лайк" />
+                        <button type="button" class="elements__heart">
+                            <img src="./images/heart.svg" alt="Лайк" />
+                        </button>
                     </div>
                 </div>
                 <div class="elements__element">
                     <img class="elements__image" src="./images/ozero_baykal.png" alt="Озеро Байкал" />
                     <div class="elements__rating">
                         <h2 class="elements__name">Восточная Сибирь</h2>
-                        <img class="elements__heart" src="./images/heart.svg" alt="Лайк" />
+                        <button type="button" class="elements__heart">
+                            <img src="./images/heart.svg" alt="Лайк" />
+                        </button>
                     </div>
                 </div>
                 <div class="elements__element">
                     <img class="elements__image" src="./images/agurskie_vodopady.png" alt="Агурские водопады" />
                     <div class="elements__rating">
                         <h2 class="elements__name">Сочи, Краснодарский край</h2>
-                        <img class="elements__heart" src="./images/heart.svg" alt="Лайк" />
+                        <button type="button" class="elements__heart">
+                            <img src="./images/heart.svg" alt="Лайк" />
+                        </button>
                     </div>
                 </div>
                 <div class="elements__element">
                     <img class="elements__image" src="./images/gory_shihany.png" alt="Горы Шиханы" />
                     <div class="elements__rating">
                         <h2 class="elements__name">Республика Башкортостан</h2>
-                        <img class="elements__heart" src="./images/heart.svg" alt="Лайк" />
+                        <button type="button" class="elements__heart">
+                            <img src="./images/heart.svg" alt="Лайк" />
+                        </button>
                     </div>
                 </div>
             </section>
@@ -80,20 +90,22 @@
         </footer>
     </div>
     <div class="popup">
-        <form class="popup__container">
+        <form class="popup__container" name="editform" method="get">
             <button type="button" class="popup__close"><img class="popup__cross" src="./images/cross.png"
                     alt="Кнопка закрытия" />
             </button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <label class="popup__field">
-                <input type="text" class="popup__input popup__input_username" placeholder="Имя">
+                <input type="text" class="popup__input popup__input_username" name="username" placeholder="Имя">
             </label>
             <label class="popup__field">
-                <input type="text" class="popup__input popup__input_userjob" placeholder="Работа или хобби">
+                <input type="text" class="popup__input popup__input_userjob" name="userjob"
+                    placeholder="Работа или хобби">
             </label>
             <button type="submit" class="popup__saveBtn">Сохранить</button>
         </form>
     </div>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>

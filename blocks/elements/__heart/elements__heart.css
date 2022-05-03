@@ -1,5 +1,8 @@
 .elements__heart {
     margin: 0 5px;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .elements__heart:hover {
