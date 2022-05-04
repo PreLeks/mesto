@@ -8,11 +8,17 @@
     color: #fff;
     font-size: 18px;
     cursor: pointer;
+    transition: opacity .5s ease;
 }
 
 .popup__saveBtn:hover {
     opacity: .8;
-    transition: opacity .5s ease;
+}
+
+@media screen and (max-width: 1280px) {
+    .popup__saveBtn {
+        font-size: calc((100vw - 320px) / (1280 - 320) * (18 - 14) + 14px);
+    }
 }
 
 @media screen and (max-width: 650px) {

@@ -7,22 +7,21 @@ let jobInput = document.querySelector('.popup__input_userjob');
 let username = document.querySelector('.profile__name');
 let userjob = document.querySelector('.profile__job');
 
-function openEditPopup() {
-    nameInput.value = username.textContent;
-    jobInput.value = userjob.textContent;
+function toggleEditPopup() {
+    editPopup.classList.toggle('popup_opened');
     if (editPopup.classList.contains('popup_opened')) {
-        editPopup.classList.remove('popup_opened');
-    } else {
-        editPopup.classList.add('popup_opened');
+        nameInput.value = username.textContent;
+        jobInput.value = userjob.textContent;
     }
 }
+// Огромное спасибо!!! Очень круто!
 function formSubmitHandler(evt) {
     evt.preventDefault();
     username.textContent = nameInput.value;
     userjob.textContent = jobInput.value;
-    openEditPopup();
+    toggleEditPopup();
 }
 
-openEditBtn.addEventListener('click', openEditPopup);
-closeEditBtn.addEventListener('click', openEditPopup);
+openEditBtn.addEventListener('click', toggleEditPopup);
+closeEditBtn.addEventListener('click', toggleEditPopup);
 formElement.addEventListener('submit', formSubmitHandler);

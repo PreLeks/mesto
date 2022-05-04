@@ -3,10 +3,10 @@
     background: transparent;
     border: none;
     padding: 0;
+    transition: opacity .3s ease;
 }
 
 .elements__heart:hover {
     opacity: .5;
-    transition: opacity .3s ease;
     cursor: pointer;
 }

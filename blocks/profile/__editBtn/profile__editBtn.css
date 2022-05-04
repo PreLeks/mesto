@@ -9,11 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity .3s ease;
 }
 
 .profile__editBtn:hover {
     opacity: .6;
-    transition: opacity .3s ease;
 }
 
 @media screen and (max-width: 650px) {
