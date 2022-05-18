@@ -1,6 +1,8 @@
 .elements__heart {
-    margin: 0 5px;
-    background: transparent;
+    margin-right: 20px;
+    background: url('../../../images/heart.svg') center no-repeat;
+    width: 22px;
+    height: 19px;
     border: none;
     padding: 0;
     transition: opacity .3s ease;

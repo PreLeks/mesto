@@ -16,81 +16,29 @@
         </header>
         <main>
             <section class="profile">
-                <img class="profile__avatar" src="./images/avatar.png" alt="Жак-Ив Кусто" />
+                <img class="profile__avatar" src="./images/bender.jpg" alt="Бендер Родригес" />
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <h1 class="profile__name">Бендер Родригес</h1>
                     <button type="button" class="profile__editBtn profile__editBtn_popup"><img class="profile__pencil"
                             src="./images/pencil.png" alt="Кнопка редактирования" />
                     </button>
-                    <p class="profile__job">Исследователь океана</p>
+                    <p class="profile__job">Убить всех человеков!!!</p>
                 </div>
-                <button type="button" class="profile__addBtn"><img class="profile__plus" src="./images/plus.png"
-                        alt="Кнопка добавления" />
+                <button type="button" class="profile__addBtn profile__addBtn_popup"><img class="profile__plus"
+                        src="./images/plus.png" alt="Кнопка добавления" />
                 </button>
             </section>
-            <section class="elements">
-                <div class="elements__element">
-                    <img class="elements__image" src="./images/lenskie_stolby.png" alt="Ленские столбы" />
-                    <div class="elements__rating">
-                        <h2 class="elements__name">Якутия</h2>
-                        <button type="button" class="elements__heart">
-                            <img src="./images/heart.svg" alt="Лайк" />
-                        </button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" src="./images/stolby_vyvetrivaniya.png" alt="Столбы выветривания" />
-                    <div class="elements__rating">
-                        <h2 class="elements__name">Республика Коми</h2>
-                        <button type="button" class="elements__heart">
-                            <img src="./images/heart.svg" alt="Лайк" />
-                        </button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" src="./images/kurshskaya_kosa.png" alt="Куршская коса" />
-                    <div class="elements__rating">
-                        <h2 class="elements__name">Калининградская область</h2>
-                        <button type="button" class="elements__heart">
-                            <img src="./images/heart.svg" alt="Лайк" />
-                        </button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" src="./images/ozero_baykal.png" alt="Озеро Байкал" />
-                    <div class="elements__rating">
-                        <h2 class="elements__name">Восточная Сибирь</h2>
-                        <button type="button" class="elements__heart">
-                            <img src="./images/heart.svg" alt="Лайк" />
-                        </button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" src="./images/agurskie_vodopady.png" alt="Агурские водопады" />
-                    <div class="elements__rating">
-                        <h2 class="elements__name">Сочи, Краснодарский край</h2>
-                        <button type="button" class="elements__heart">
-                            <img src="./images/heart.svg" alt="Лайк" />
-                        </button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" src="./images/gory_shihany.png" alt="Горы Шиханы" />
-                    <div class="elements__rating">
-                        <h2 class="elements__name">Республика Башкортостан</h2>
-                        <button type="button" class="elements__heart">
-                            <img src="./images/heart.svg" alt="Лайк" />
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <ul class="elements">
+
+            </ul>
         </main>
         <footer class="footer">
             <p class="footer__text">© 2022 Mesto Russia</p>
         </footer>
     </div>
-    <div class="popup">
-        <form class="popup__container" name="editform" method="get">
+
+    <div class="popup popup_type_edit">
+        <form class="popup__container popup__container_type_profile" name="editform" method="get">
             <button type="button" class="popup__close"><img class="popup__cross" src="./images/cross.png"
                     alt="Кнопка закрытия" />
             </button>
@@ -102,10 +50,52 @@
                 <input type="text" class="popup__input popup__input_userjob" name="userjob"
                     placeholder="Работа или хобби">
             </label>
-            <button type="submit" class="popup__saveBtn">Сохранить</button>
+            <button type="submit" class="popup__submitBtn">Сохранить</button>
         </form>
     </div>
+
+    <div class="popup popup_type_add">
+        <form class="popup__container  popup__container_type_card" name="addform" method="get">
+            <button type="button" class="popup__close"><img class="popup__cross" src="./images/cross.png"
+                    alt="Кнопка закрытия" />
+            </button>
+            <h3 class="popup__title">Новое место</h3>
+            <label class="popup__field">
+                <input type="text" class="popup__input popup__input_titlecard" name="titlecard" placeholder="Название">
+            </label>
+            <label class="popup__field">
+                <input type="url" class="popup__input popup__input_urlcard" name="urlcard"
+                    placeholder="Ссылка на картинку">
+            </label>
+            <button type="submit" class="popup__submitBtn">Создать</button>
+        </form>
+    </div>
+
+    <div class="popup popup_type_pic">
+        <figure class="popup__pic">
+            <button type="button" class="popup__close"><img class="popup__cross" src="./images/cross.png"
+                    alt="Кнопка закрытия" />
+            </button>
+            <img class="popup__image" src="https://i.ytimg.com/vi/EPrE8WrN_s8/maxresdefault.jpg" alt="Бендерс" />
+            <figcaption class="popup__image-title"></figcaption>
+        </figure>
+    </div>
+
+    <template class="template">
+        <li class="elements__element">
+            <button type="button" class="elements__trash">
+                <img src="./images/trash.png" alt="Корзина" />
+            </button>
+            <img class="elements__image" src="" alt="" />
+            <div class="elements__rating">
+                <h2 class="elements__name"></h2>
+                <button type="button" class="elements__heart"></button>
+            </div>
+        </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
+
 </body>
 
 </html>

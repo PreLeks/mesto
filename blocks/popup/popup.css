@@ -9,7 +9,10 @@
     left: 0;
     background-color: rgba(0, 0, 0, .5);
     opacity: 0;
-    z-index: -1;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: .7s, 0s;
+    transition-delay: 0s, .7s;
 }
 
 @media screen and (max-width: 1024px) {
