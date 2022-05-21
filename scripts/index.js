@@ -1,35 +1,3 @@
-const initialCards = [
-  {
-    name: 'Якутия',
-    link: 'https://masterokblog.ru/wp-content/uploads/d1377d21116ef36f54ca-9.jpg',
-    //alt: 'Ленские столбы'
-  },
-  {
-    name: 'Республика Коми',
-    link: 'https://murmansk1.sletat.ru/81YLenK0E6M.jpg',
-    //alt: 'Столбы выветривания'
-  },
-  {
-    name: 'Калининградская область',
-    link: 'https://s3.nat-geo.ru/images/2019/5/14/b6721a8cf1f74ba0a5d28ee0cc4b47be.max-2500x1500.jpg',
-    //alt: 'Куршская коса'
-  },
-  {
-    name: 'Восточная Сибирь',
-    link: 'https://cdn.culture.ru/images/934f051a-0d5c-5bd8-abc6-3ef7d9250757',
-    //alt: 'Озеро Байкал'
-  },
-  {
-    name: 'Сочи, Краснодарский край',
-    link: 'https://s3.nat-geo.ru/images/2019/10/25/656679d5bcdc4bde99b9d6ffcb6fa6ce.max-2500x1500.jpg',
-    //alt: 'Агурские водопады'
-  },
-  {
-    name: 'Республика Башкортостан',
-    link: 'https://cdn.fishki.net/upload/post/2021/08/10/3880999/947b296ef325c7bfef21cb29bb09c4d2.jpg',
-    //alt: 'Горы Шиханы'
-  }
-];
 const openBtnProfile = document.querySelector('.profile__editBtn_popup');
 const openBtnCard = document.querySelector('.profile__addBtn_popup');
 const popupProfile = document.querySelector('.popup_type_edit');
@@ -57,7 +25,7 @@ function openPopup(namePopup) {
 function closePopup(namePopup) {
   namePopup.classList.remove('popup_opened');
 }
-function popupProfileInfo() {
+function openProfileInfo() {
   nameInputProfile.value = username.textContent;
   jobInputProfile.value = userjob.textContent;
   openPopup(popupProfile);
@@ -68,8 +36,7 @@ function formProfileHandler(evt) {
   userjob.textContent = jobInputProfile.value;
   closePopup(popupProfile);
 }
-initialCards.forEach(i => {
-  const initialCard = createCard(i);
+initialCards.reverse().forEach(initialCard => {
   renderCard(initialCard);
 });
 function openPopupPic(evt) {
@@ -85,16 +52,15 @@ function likeBtnHandler(evt) {
 }
 function formCardHandler(evt) {
   evt.preventDefault();
-  const userCard = createCard({ link: linkInputCard.value, name: nameInputCard.value });
-  renderCard(userCard);
+  renderCard({ link: linkInputCard.value, name: nameInputCard.value });
   closePopup(popupCard);
   evt.target.reset();
 }
-function createCard(item) {
+function createCard({ link, name }) {
   const initialCardsElement = cardTemplate.cloneNode(true);
-  initialCardsElement.querySelector('.elements__image').src = item.link;
-  initialCardsElement.querySelector('.elements__image').alt = item.name;
-  initialCardsElement.querySelector('.elements__name').textContent = item.name;
+  initialCardsElement.querySelector('.elements__image').src = link;
+  initialCardsElement.querySelector('.elements__image').alt = name;
+  initialCardsElement.querySelector('.elements__name').textContent = name;
   initialCardsElement.querySelector('.elements__image').addEventListener('click', openPopupPic);
   const delBtnCard = initialCardsElement.querySelector('.elements__trash');
   const likeBtnCard = initialCardsElement.querySelector('.elements__heart');
@@ -102,11 +68,12 @@ function createCard(item) {
   likeBtnCard.addEventListener('click', likeBtnHandler);
   return initialCardsElement;
 }
-function renderCard(name) {
-  cardsList.prepend(name);
+function renderCard(card) {
+  cardsList.prepend(createCard(card));
 }
-openBtnProfile.addEventListener('click', popupProfileInfo);
-openBtnCard.addEventListener('click', () => { openPopup(popupCard); });
+
+openBtnProfile.addEventListener('click', openProfileInfo);
+openBtnCard.addEventListener('click', () => { openPopup(popupCard) });
 closeBtnProfile.addEventListener('click', () => { closePopup(popupProfile) });
 closeBtnCard.addEventListener('click', () => { closePopup(popupCard) });
 closeBtnPic.addEventListener('click', () => { closePopup(popupPic) });
