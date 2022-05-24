@@ -8,14 +8,14 @@ const closeBtnCard = popupCard.querySelector('.popup__close');
 const closeBtnPic = popupPic.querySelector('.popup__close');
 const popupPicImg = popupPic.querySelector('.popup__image');
 const popupPicTitle = popupPic.querySelector('.popup__image-title');
-let formProfile = document.querySelector('.popup__container_type_profile');
-let nameInputProfile = formProfile.querySelector('.popup__input_username');
-let jobInputProfile = formProfile.querySelector('.popup__input_userjob');
-let username = document.querySelector('.profile__name');
-let userjob = document.querySelector('.profile__job');
-let formCard = document.querySelector('.popup__container_type_card');
-let nameInputCard = formCard.querySelector('.popup__input_titlecard');
-let linkInputCard = formCard.querySelector('.popup__input_urlcard');
+const formProfile = document.querySelector('.popup__container_type_profile');
+const nameInputProfile = formProfile.querySelector('.popup__input_username');
+const jobInputProfile = formProfile.querySelector('.popup__input_userjob');
+const username = document.querySelector('.profile__name');
+const userjob = document.querySelector('.profile__job');
+const formCard = document.querySelector('.popup__container_type_card');
+const nameInputCard = formCard.querySelector('.popup__input_titlecard');
+const linkInputCard = formCard.querySelector('.popup__input_urlcard');
 const cardsList = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.template').content.querySelector('.elements__element');
 
@@ -41,6 +41,7 @@ initialCards.reverse().forEach(initialCard => {
 });
 function openPopupPic(evt) {
   popupPicImg.src = evt.target.src;
+  popupPicImg.alt = evt.target.alt;
   popupPicTitle.textContent = evt.target.alt;
   openPopup(popupPic);
 }
