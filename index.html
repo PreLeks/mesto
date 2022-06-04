@@ -38,36 +38,42 @@
     </div>
 
     <div class="popup popup_type_edit">
-        <form class="popup__container popup__container_type_profile" name="editform" method="get">
+        <form class="popup__form popup__form_type_profile" name="editform" method="get">
             <button type="button" class="popup__close"><img class="popup__cross" src="./images/cross.png"
                     alt="Кнопка закрытия" />
             </button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <label class="popup__field">
-                <input type="text" class="popup__input popup__input_username" name="username" placeholder="Имя">
+                <input type="text" class="popup__input popup__input_username" id="username" name="username"
+                    placeholder="Имя" minlength="2" maxlength="40" required>
+                <span class="popup__error username-error">Вы пропустили это поле.</span>
             </label>
             <label class="popup__field">
-                <input type="text" class="popup__input popup__input_userjob" name="userjob"
-                    placeholder="Работа или хобби">
+                <input type="text" class="popup__input popup__input_userjob" id="userjob" name="userjob"
+                    placeholder="Работа или хобби" minlength="2" maxlength="200" required>
+                <span class="popup__error userjob-error">Вы пропустили это поле.</span>
             </label>
-            <button type="submit" class="popup__submitBtn">Сохранить</button>
+            <button type="submit" class="popup__button">Сохранить</button>
         </form>
     </div>
 
     <div class="popup popup_type_add">
-        <form class="popup__container  popup__container_type_card" name="addform" method="get">
+        <form class="popup__form popup__form_type_card" name="addform" method="get">
             <button type="button" class="popup__close"><img class="popup__cross" src="./images/cross.png"
                     alt="Кнопка закрытия" />
             </button>
             <h3 class="popup__title">Новое место</h3>
             <label class="popup__field">
-                <input type="text" class="popup__input popup__input_titlecard" name="titlecard" placeholder="Название">
+                <input type="text" class="popup__input popup__input_titlecard" id="titlecard" name="titlecard"
+                    placeholder="Название" minlength="2" maxlength="30" required>
+                <span class="popup__error titlecard-error">Вы пропустили это поле.</span>
             </label>
             <label class="popup__field">
-                <input type="url" class="popup__input popup__input_urlcard" name="urlcard"
-                    placeholder="Ссылка на картинку">
+                <input type="url" class="popup__input popup__input_urlcard" id="urlcard" name="urlcard"
+                    placeholder="Ссылка на картинку" required>
+                <span class="popup__error urlcard-error">Введите адрес сайта.</span>
             </label>
-            <button type="submit" class="popup__submitBtn">Создать</button>
+            <button type="submit" class="popup__button">Создать</button>
         </form>
     </div>
 
@@ -94,6 +100,7 @@
         </li>
     </template>
 
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
 

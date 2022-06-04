@@ -2,6 +2,7 @@
     padding-bottom: 30px;
     width: 100%;
     display: inline-block;
+    position: relative;
 }
 
 .popup__field:last-of-type {
