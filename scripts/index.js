@@ -21,7 +21,6 @@ const formCard = document.querySelector('.popup__form_type_card');
 const nameInputCard = formCard.querySelector('.popup__input_titlecard');
 const linkInputCard = formCard.querySelector('.popup__input_urlcard');
 const cardsContainer = document.querySelector('.elements');
-const popupButton = formCard.querySelector('.popup__button');
 const formValidators = {};
 
 function closePopupEscape(evt) {
@@ -48,6 +47,7 @@ function closePopup(namePopup) {
 function openProfileInfo() {
   nameInputProfile.value = username.textContent;
   jobInputProfile.value = userjob.textContent;
+  formValidators[formProfile.name].hideInputErrors();
   openPopup(popupProfile);
 }
 function formProfileHandler(evt) {
@@ -66,8 +66,7 @@ function formCardHandler(evt) {
   evt.preventDefault();
   renderCard({ link: linkInputCard.value, name: nameInputCard.value });
   formCard.reset();
-  popupButton.disabled = true;
-  popupButton.classList.add('popup__button_disabled');
+  formValidators[formCard.name].toggleButtonState();
   closePopup(popupCard);
 }
 initialCards.reverse().forEach(initialCard => {
@@ -80,6 +79,7 @@ function createCard({ link, name }) {
 function renderCard(card) {
   cardsContainer.prepend(createCard(card));
 }
+
 Array.from(document.forms).forEach((formElement) => {
   formValidators[formElement.name] = new FormValidator(validationConfig, formElement);
   formValidators[formElement.name].enableValidation();
