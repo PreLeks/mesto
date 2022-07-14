@@ -44,6 +44,7 @@ export default class Card {
 
     _delBtnHandler = () => {
         this._element.remove();
+        this._element = null;
     }
 
     getCard() {
