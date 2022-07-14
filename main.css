@@ -16,7 +16,7 @@
 .elements{display:grid;gap:20px 17px;grid-template-columns:repeat(auto-fit,minmax(282px,1fr));list-style:none;margin:0;padding:51px 0 0}@media screen and (max-width:890px){.elements{padding:51px 19px 0}}@media screen and (max-width:600px){.elements{padding-top:36px}}
 .elements__element{background-color:#fff;border-radius:10px;position:relative}
 .elements__trash{background:transparent;border:none;padding:0;position:absolute;right:20px;top:20px;transition:opacity .3s ease}.elements__trash:hover{cursor:pointer;opacity:.5}
-.elements__image{border-radius:10px 10px 0 0;cursor:pointer;height:282px;-o-object-fit:cover;object-fit:cover;width:100%}
+.elements__image{border-radius:10px 10px 0 0;cursor:pointer;min-height:282px;-o-object-fit:cover;object-fit:cover;width:100%}
 .elements__rating{align-items:center;display:flex;justify-content:space-between}
 .elements__name{color:#000;font-size:24px;font-weight:900;line-height:29px;margin:0;max-width:75%;overflow:hidden;padding:22px 0 25px 21px;text-overflow:ellipsis;white-space:nowrap}
 .elements__heart{background:url(images/heart87ed371465c7a6a1cd01.svg) 50% no-repeat;border:none;height:19px;margin-right:20px;padding:0;transition:opacity .3s ease;width:22px}.elements__heart:hover{cursor:pointer;opacity:.5}
