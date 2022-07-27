@@ -44,7 +44,7 @@
     <div class="popup__container">
       <button class="button popup__close popup__close_edit transition" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form popup__input_container-edit" name="edit" action="#" method="POST">
+      <form class="popup__form popup__form_type_edit" name="edit" action="#" method="POST">
         <label class="popup__field">
           <input class="popup__item popup__item_input-name" type="text" id="name-input" name="name" value=""
             placeholder="Имя" required minlength="2" maxlength="40" />
@@ -55,7 +55,7 @@
             placeholder="Об авторе" required minlength="2" maxlength="200" />
           <span class="popup__item-error" id="about-input-error"></span>
         </label>
-        <button class="button popup__button-submit popup__button-submit-edit" type="submit">Сохранить</button>
+        <button class="button popup__button-submit popup__button-submit_type_edit" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -64,7 +64,7 @@
     <div class="popup__container">
       <button class="button popup__close popup__close_add transition" type="button"></button>
       <h2 class="popup__title"> Новое место</h2>
-      <form class="popup__form popup__input_container-add" name="add" action="#" method="POST">
+      <form class="popup__form popup__form_type_add" name="add" action="#" method="POST">
         <label class="popup__field">
           <input class="popup__item popup__item_input-title" type="text" id="title-input" name="name" value=""
             placeholder="Название" required minlength="2" maxlength="30" />
@@ -75,7 +75,7 @@
             placeholder="Ссылка на картинку" required />
           <span class="popup__item-error" id="link-input-error"></span>
         </label>
-        <button class="button popup__button-submit popup__button_type_place" type="submit">Создать</button>
+        <button class="button popup__button-submit popup__button-submit_type_place" type="submit">Создать</button>
       </form>
     </div>
   </div>
@@ -84,28 +84,28 @@
     <div class="popup__container">
       <button class="button popup__close popup__close_avatar transition" type="button"></button>
       <h2 class="popup__title">Обновить аватар</h2>
-      <form class="popup__form popup__input_container-avatar" name="avatar" action="#" method="POST">
+      <form class="popup__form popup__form_type_avatar" name="avatar" action="#" method="POST">
         <label class="popup__field">
           <input class="popup__item popup__item_input-avatar" type="url" id="avalink-input" name="link" value=""
             placeholder="Ссылка на аватар" required />
           <span class="popup__item-error" id="avalink-input-error"></span>
         </label>
-        <button class="button popup__button-submit popup__button-submit-avatar" type="submit">Сохранить</button>
+        <button class="button popup__button-submit popup__button-submit_type_avatar" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
 
-  <div class="popup popup_delete-card">
+  <div class="popup popup__delete-card">
     <div class="popup__container">
       <button class="button popup__close popup__close_delete transition" type="button"></button>
       <h2 class="popup__title">Вы уверены?</h2>
-      <form class="popup__form popup__input_container-delete" name="confirm">
+      <form class="popup__form" name="confirm">
         <button class="button popup__button-submit" type="submit">Да</button>
       </form>
     </div>
   </div>
 
-  <div class="popup popup__image popup__background_image">
+  <div class="popup popup__image popup__background-image">
     <figure class="popup__container popup__container_image">
       <button class="button popup__close popup__close_image transition" type="button"></button>
       <img class="popup__pic" src="#" alt="#" />
