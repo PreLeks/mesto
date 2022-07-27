@@ -29,11 +29,6 @@
 @import url(../blocks/button/__like/button__like.css);
 @import url(../blocks/button/_visible/button_visible.css);
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__edit/popup__edit.css);
-@import url(../blocks/popup/__add/popup__add.css);
-@import url(../blocks/popup/__avatar/popup__avatar.css);
-@import url(../blocks/popup/__delete-card/popup__delete-card.css);
-@import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__background-image/popup__background-image.css);
 @import url(../blocks/popup/__button-submit/popup__button-submit.css);
 @import url(../blocks/popup/__button-submit/_disabled/popup__button-submit_disabled.css);

@@ -8,10 +8,10 @@ export const validationProps = {
 };
 
 export const profileAbout = ('.profile__about');
-export const imageInPopup = ('.popup__image');
-export const deleteCard = ('.popup__delete-card');
+export const imageInPopup = ('.popup_type_image');
+export const deleteCard = ('.popup_type_delete-card');
 
-export const popupAvatar = ('.popup__avatar');
+export const popupAvatar = ('.popup_type_avatar');
 export const profileAvatar = ('.profile__image');
 export const formAvatar = document.querySelector('.popup__form_type_avatar');
 export const editAvatarButton = document.querySelector('.profile__button-avatar');
@@ -24,8 +24,8 @@ export const descriptionInput = document.querySelector('.popup__item_input-about
 export const addButton = document.querySelector('.profile__button-add');
 export const editButton = document.querySelector('.profile__button-edit');
 
-export const addPopup = ('.popup__add');
-export const editPopup = ('.popup__edit');
+export const addPopup = ('.popup_type_add');
+export const editPopup = ('.popup_type_edit');
 
 export const formPlace = document.querySelector('.popup__form_type_add');
 export const formAbout = document.querySelector('.popup__form_type_edit');
