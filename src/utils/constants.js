@@ -1,38 +1,55 @@
-export const validationProps = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__item',
-  submitButtonSelector: '.popup__button-submit',
-  inactiveButtonClass: 'popup__button-submit_disabled',
-  inputErrorClass: 'popup__item_error',
-  errorClass: 'popup__item-error_active',
+export const profilePopupBtn = document.querySelector('.profile__editBtn_popup');
+export const newCardPopupBtn = document.querySelector('.profile__addBtn_popup');
+export const avatarPopupBtn = document.querySelector('.profile__avatar');
+export const profilePopupSelector = '.popup_type_edit';
+export const newCardPopupSelector = '.popup_type_add';
+export const imagePopupSelector = '.popup_type_pic';
+export const deleteCardPopupSelector = '.popup_type_del';
+export const avatarPopupSelector = '.popup_type_avatar';
+export const profileFormName = 'editProfile';
+export const newCardFormName = 'addNewCard';
+export const deleteCardFormName = 'deleteCard';
+export const avatarFormName = 'updateAvatar';
+export const cardsContainerSelector = '.elements';
+export const templateContent = '.template';
+export const inputSelector = '.popup__input';
+export const formValidators = {};
+
+export const validationConfig = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
 };
 
-export const profileAbout = ('.profile__about');
-export const imageInPopup = ('.popup_type_image');
-export const deleteCard = ('.popup_type_delete-card');
+export const popupConfig = {
+  activeModifier: 'popup_opened',
+  closeBtnSelector: '.popup__close',
+};
 
-export const popupAvatar = ('.popup_type_avatar');
-export const profileAvatar = ('.profile__image');
-export const formAvatar = document.querySelector('.popup__form_type_avatar');
-export const editAvatarButton = document.querySelector('.profile__button-avatar');
+export const profilePopupConfig = {
+  userNameSelector: '.profile__name',
+  userJobSelector: '.profile__job',
+  userAvatarSelector: '.profile__avatar',
+};
 
-export const nameInput = document.querySelector('.popup__item_input-name');
-export const nameProfile = ('.profile__name');
+export const imagePopupConfig = {
+  imageSelector: '.popup__image',
+  captionSelector: '.popup__image-title',
+};
 
-export const descriptionInput = document.querySelector('.popup__item_input-about');
+export const addCardBtnText = {
+  btnText: 'Создать',
+  changeBtnText: 'Сохранение...',
+};
 
-export const addButton = document.querySelector('.profile__button-add');
-export const editButton = document.querySelector('.profile__button-edit');
+export const delCardBtnText = {
+  btnText: 'Да',
+  changeBtnText: 'Удаление...',
+};
 
-export const addPopup = ('.popup_type_add');
-export const editPopup = ('.popup_type_edit');
-
-export const formPlace = document.querySelector('.popup__form_type_add');
-export const formAbout = document.querySelector('.popup__form_type_edit');
-
-export const placeTemplate = ('.place-template');
-export const placeCatalogue = ('.places__catalogue');
-
-export const submitButtonPlace = document.querySelector('.popup__button-submit_type_place');
-export const submitButtonAbout = document.querySelector('.popup__button-submit_type_edit');
-export const submitButtonAvatar = document.querySelector('.popup__button-submit_type_avatar');
+export const saveBtnText = {
+  btnText: 'Сохранить',
+  changeBtnText: 'Сохранение...',
+};

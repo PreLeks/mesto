@@ -1,20 +1,43 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithDelete extends Popup {
-  constructor({ popupSelector }) {
-    super(popupSelector);
+  constructor(
+    popupSelector,
+    popupConfig,
+    formName,
+    submitHandler,
+    { btnText, changeBtnText },
+  ) {
+
+    super(popupSelector, popupConfig);
+
+    this._formName = formName;
+    this._formElement = document.forms[this._formName];
+    this._handleSubmit = submitHandler;
+    this._btnText = btnText;
+    this._changeBtnText = changeBtnText;
+    this._submitBtn = this._formElement.querySelector('.popup__button');
+    this._handleSubmit = this._handleSubmit.bind(this);
+    this.close = this.close.bind(this);
   }
 
-  setFormSubmitHandler(handle) {
-    this._handleSubmit = handle;
+  open(cardId, removeCardCallBack) {
+    this._cardId = cardId;
+    this._removeCardCallBack = removeCardCallBack;
+    super.open();
+  }
+
+  changeButtonText = (isSaving) => {
+    this._submitBtn.textContent = isSaving ? this._changeBtnText : this._btnText;
+  }
+
+  _handleFormSubmit = (event) => {
+    event.preventDefault();
+    this._handleSubmit(this._cardId, this._removeCardCallBack, this.changeButtonText, this.close);
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._form = this._element.querySelector(".popup__form");
-    this._form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this._handleSubmit();
-    });
+    this._formElement.addEventListener('submit', this._handleFormSubmit);
   }
 }
