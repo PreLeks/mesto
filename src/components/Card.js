@@ -29,7 +29,7 @@ export default class Card {
       this._element = cardTemplate;
   }
 
-  _generateCard() {
+  _setElements() {
     this._image = this._element.querySelector('.elements__image');
     this._delBtn = this._element.querySelector('.elements__trash');
     this._likeBtn = this._element.querySelector('.elements__heart');
@@ -63,6 +63,7 @@ export default class Card {
 
   deleteCard() {
     this._element.remove();
+    this._element = null;
   }
 
   _handleLikeClick = () => this._handleCardLike(this._id, this._isLiked(), this.setLikes);
@@ -81,7 +82,7 @@ export default class Card {
 
   getCard() {
     this._getTemplate();
-    this._generateCard();
+    this._setElements();
     this._fillData();
     this._renderLikes();
     this._setEventListeners();

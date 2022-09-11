@@ -54,17 +54,18 @@ deleteCardPopup.setEventListeners();
 
 function removeCardHandler(cardId, removeCardCallBack, changeButtonTextCallBack, closePopupCallBack) {
   changeButtonTextCallBack(true);
-  api.deleteCard(cardId)
-  .then(() => {
-    removeCardCallBack();
-    closePopupCallBack();
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    changeButtonTextCallBack(false);
-  });
+  api
+    .deleteCard(cardId)
+    .then(() => {
+      removeCardCallBack();
+      closePopupCallBack();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      changeButtonTextCallBack(false);
+    });
 }
 
 function handleImageClick(name, link) {
@@ -90,16 +91,21 @@ const createCard = (item) => {
 }
 
 function handleLikeClick(cardId, isLiked, setLikesCallBack) {
-  api.switchLike(cardId, isLiked)
-  .then(({ likes }) => {
-    setLikesCallBack(likes);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+  api
+    .switchLike(cardId, isLiked)
+    .then(({ likes }) => {
+      setLikesCallBack(likes);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
-const cardsContainer = new Section({ renderer: createCard }, cardsContainerSelector);
+const cardsContainer = new Section({ 
+  renderer: (card) => {
+    cardsContainer.addItem(createCard(card)); 
+  }, 
+}, cardsContainerSelector);
 
 Array.from(document.forms).forEach((formElement) => {
   formValidators[formElement.name] = new FormValidator(validationConfig, formElement);
@@ -123,17 +129,18 @@ newCardPopupBtn.addEventListener('click', handleNewCardPopupOpen);
 
 function addCardHandler(item, changeButtonTextCallBack, closePopupCallBack) {
   changeButtonTextCallBack(true);
-  api.addCard(item.name, item.link)
-  .then((res) => {
-    cardsContainer.addItem(res);
-    closePopupCallBack();
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    changeButtonTextCallBack(false);
-  });
+  api
+    .addCard(item.name, item.link)
+    .then((res) => {
+      cardsContainer.addItem(createCard(res));
+      closePopupCallBack();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      changeButtonTextCallBack(false);
+    });
 }
 
 const user = new UserInfo(profilePopupConfig);
@@ -156,17 +163,18 @@ profilePopupBtn.addEventListener('click', handleProfilePopupOpen);
 
 function editUserInfoHandler(profileData, changeButtonTextCallBack, closePopupCallBack) {
   changeButtonTextCallBack(true);
-  api.editUserInfo(profileData.title, profileData.job)
-  .then((res) => {
-    user.setUserInfo(res);
-    closePopupCallBack();
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    changeButtonTextCallBack(false);
-  }); 
+  api
+    .editUserInfo(profileData.title, profileData.job)
+    .then((res) => {
+      user.setUserInfo(res);
+      closePopupCallBack();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      changeButtonTextCallBack(false);
+    });
 }
 
 const popupNewAvatar = new PopupWithForm(
@@ -187,24 +195,25 @@ avatarPopupBtn.addEventListener('click', handlePopupNewAvatarOpen);
 
 function editAvatarHandler(data, changeButtonTextCallBack, closePopupCallBack) {
   changeButtonTextCallBack(true);
-  api.editAvatar(data.avatar)
-  .then((profileAvatar) => {
+  api
+    .editAvatar(data.avatar)
+    .then((profileAvatar) => {
       user.setUserInfo(profileAvatar);
       closePopupCallBack();
-  })
-  .catch((err) => {
+    })
+    .catch((err) => {
       console.dir(err);
-  })
-  .finally(() => {
+    })
+    .finally(() => {
       changeButtonTextCallBack(false);
-  });
+    });
 }
 
 Promise.all([api.getUser(), api.getCards()])
-.then(([profileData, cards]) => {
-  user.setUserInfo(profileData);
-  cardsContainer.rendererItems(cards);
-})
-.catch((err) => {
-  console.log(err);
-});
+  .then(([profileData, cards]) => {
+    user.setUserInfo(profileData);
+    cardsContainer.rendererItems(cards);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
