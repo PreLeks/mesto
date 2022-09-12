@@ -34,7 +34,13 @@ import {
   saveBtnText,
 } from '../utils/constants.js';
 
-const api = new Api('https://mesto.nomoreparties.co/v1/cohort-45');
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-45',
+  headers: {
+    authorization: '8a753b76-ed46-4753-9e64-969c26664098',
+    'Content-Type': 'application/json'
+  }
+});
 
 const popupImage = new PopupWithImage(
   imagePopupSelector,

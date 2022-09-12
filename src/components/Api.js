@@ -1,10 +1,7 @@
 export default class Api {
-  constructor(url) {
-    this._url = url;
-    this._headers = {
-      authorization: '8a753b76-ed46-4753-9e64-969c26664098',
-      'Content-Type': 'application/json'
-    };
+  constructor({ baseUrl, headers }) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
   }
 
   _getResponseData(res) {
@@ -15,14 +12,14 @@ export default class Api {
   }
 
   getCards() {
-    return fetch(`${this._url}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
       .then(this._getResponseData);
   }
 
   getUser() {
-    return fetch(`${this._url}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
       .then(this._getResponseData);
@@ -30,7 +27,7 @@ export default class Api {
 
   editUserInfo(title, job) {
     const body = { name: title, about: job };
-    return fetch(`${this._url}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify(body),
@@ -40,22 +37,17 @@ export default class Api {
 
   editAvatar(userAvatar) {
     const body = { avatar: userAvatar };
-    return fetch(`${this._url}/users/me/avatar`, {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify(body),
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.message}`);
-      });
+      .then(this._getResponseData);
   }
 
   addCard(newPlace, linkPlace) {
     const body = { name: newPlace, link: linkPlace };
-    return fetch(`${this._url}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: "POST",
       body: JSON.stringify(body),
@@ -64,7 +56,7 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       headers: this._headers,
       method: "DELETE",
     })
@@ -72,14 +64,14 @@ export default class Api {
   }
 
   countLikes() {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
     })
       .then(this._getResponseData);
   }
 
   switchLike(cardId, isLiked) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
       method: isLiked ? 'DELETE' : 'PUT',
     })
